@@ -5,10 +5,10 @@ import java.util.ArrayList;
 public class Solver {
 
 	private ArrayList<String> variables;
-	private ArrayList<Assignement> constraints;
+	private ArrayList<Constraint> constraints;
 	private Node initialNode;
 	
-	public Solver(ArrayList<String> variables,ArrayList<Assignement> constraints, Node initialNode) {
+	public Solver(ArrayList<String> variables,ArrayList<Constraint> constraints, Node initialNode) {
 		this.variables = variables;
 		this.constraints = constraints;
 		this.initialNode = initialNode;
@@ -40,7 +40,7 @@ public class Solver {
 	}
 
 	private Node prune(Node e) {
-		//TODO
+		
 		return null;
 	}
 	
