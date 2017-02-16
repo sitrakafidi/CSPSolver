@@ -18,16 +18,18 @@ public class Solver {
 		ArrayList<Node> L = new ArrayList<Node>();
 		L.add(initialNode);
 		while(!L.isEmpty()){
-			Node E = L.remove(0);
+			
+			Node E = (Node)(L.get(0).clone());
+			L.remove(0);
 			Node F = prune(E);
-			if(!(F.getDomains().isEmpty())){
+			if(!(F.hasEmptyDomain())){
 				if(F.isSolution()){
-					System.out.println("Solution :"+F.toString());
+					showSolution(F);
 				}
 				else {
 					int index = F.smallestDomainIndex();
-					for(int v : F.getDomains().get(index).getValues() ){
-						Node G = F;
+					for(Integer v : F.getDomains().get(index).getValues() ){
+						Node G = (Node)F.clone();
 						G.getDomains().get(index).getValues().clear();
 						G.getDomains().get(index).getValues().add(v);
 						L.add(G);
@@ -35,13 +37,23 @@ public class Solver {
 				}
 			}
 			
-			
 		}
 	}
 
+	private void showSolution(Node f) {
+		System.out.println("Solution found :");
+		for(int i=0; i<variables.size() ;++i){
+			System.out.println(variables.get(i) + " : " + f.getDomains().get(i).getValues().first());
+		}
+		System.out.println("======================");
+	}
+
 	private Node prune(Node e) {
-		
-		return null;
+		Node res = (Node)e.clone();
+		for(Constraint c : constraints){
+			c.apply(res.getDomains());
+		}
+		return res;
 	}
 	
 	

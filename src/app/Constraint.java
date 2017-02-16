@@ -1,8 +1,9 @@
 package app;
 
-import java.util.ArrayList;
+
+import java.util.List;
 
 public interface Constraint {
 
-	public void apply(ArrayList<Domain> domains);
+	public void apply(List<Domain> domains);
 }

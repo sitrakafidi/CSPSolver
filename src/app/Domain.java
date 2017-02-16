@@ -26,6 +26,10 @@ public class Domain {
 		values.remove(value);
 	}
 	
-	
+	@SuppressWarnings("unchecked")
+	public Object clone(){
+		Object res = new Domain((TreeSet<Integer>)this.values.clone());
+		return res;
+	}
 	
 }
