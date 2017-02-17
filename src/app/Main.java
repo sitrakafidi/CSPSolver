@@ -1,5 +1,6 @@
 package app;
 import java.util.ArrayList;
+import java.util.Scanner;
 import java.util.TreeSet;
 
 public class Main {
@@ -8,6 +9,8 @@ public class Main {
 	public static void main(String[] args) {
 		//problème des N reines
 		int N = 10;
+		
+		
 		
 		//Variables
 		ArrayList<String> var = new ArrayList<String>(); 
@@ -37,7 +40,8 @@ public class Main {
 		}
 		Node init = new Node(doms);
 		
-		
+		//Chrono
+		//Chrono chrono = new Chrono();
 		
 		
 		Solver queenSolv = new Solver(var,constr,init);

@@ -43,7 +43,13 @@ public class Solver {
 	private void showSolution(Node f) {
 		System.out.println("Solution found :");
 		for(int i=0; i<variables.size() ;++i){
-			System.out.println(variables.get(i) + " : " + f.getDomains().get(i).getValues().first());
+			String line = "";
+			for(int j=0 ; j< variables.size() ;++j){				
+				if(j == f.getDomains().get(i).getValues().first()) line  = line + "O";
+				else line = line + "-";
+				
+			}
+			System.out.println(line);
 		}
 		System.out.println("======================");
 	}

@@ -22,7 +22,7 @@ public class Node {
 
 
 
-	public void setDomains(ArrayList<Domain> domains) {
+	public void setDomains(ArrayList<Domain> domains) {	
 		this.domains = domains;
 	}
 	
